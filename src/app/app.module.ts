@@ -8,26 +8,31 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 // import {NgbModalBackdrop} from "@ng-bootstrap/ng-bootstrap/modal/modal-backdrop";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule, NgbTimepickerConfig} from "@ng-bootstrap/ng-bootstrap";
+import {NgbdModalBasic} from "./modal-basic";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
     RouterModule.forChild([{ path: '', component: AppComponent }]),
     NgbModule.forRoot(),
+    // NgbModule,
   ],
   declarations: [
     AppComponent
   ],
-  // providers: [
-  //   NgbModalBackdrop
-  // ],
+  providers: [
+    NgbTimepickerConfig
+  ],
   bootstrap: [AppComponent],
   exports: [AppComponent]
 })
